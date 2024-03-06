@@ -37,6 +37,7 @@ import ProductReviews from './component/Admin/ProductReviews';
 import NotFound from './component/layout/NotFound.js/NotFound';
 import Contact from './component/layout/Contact/Contact';
 import About from './component/layout/About/About';
+import Heading from './components/Heading';
 
 
 function App() {
@@ -44,11 +45,11 @@ function App() {
   const {isAuthenticated, user} = useSelector((state) => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("")
 
-  // async function getStripeApiKey() {
-  //   const {data} = await axios.get("/api/v1/stripeapikey")
+  async function getStripeApiKey() {
+    const {data} = await axios.get("/api/v1/stripeapikey")
 
-  //   setStripeApiKey(data.stripeApiKey)
-  // }
+    setStripeApiKey(data.stripeApiKey)
+  }
   useEffect(()=> {
     WebFont.load({
       google: {
@@ -99,6 +100,7 @@ function App() {
     </Routes>
     <Footer/>
     </Router>
+    // <Heading/>
   );
 }
 
